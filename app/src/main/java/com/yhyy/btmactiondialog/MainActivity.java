@@ -27,6 +27,8 @@ public class MainActivity extends BaseActivity {
         new BtmActionDialog(context)
                 .builder()
                 .setTitle("标题")
+                .setCancelable(false)
+                .setCanceledOnTouchOutside(false)
                 .addSheetItem(ContextCompat.getDrawable(context, R.mipmap.ic_launcher_round), "选项一", R.color.green,
                         new OnSheetItemClickListener() {
                             @Override
@@ -35,6 +37,20 @@ public class MainActivity extends BaseActivity {
                             }
                         })
                 .addSheetItem("选项二", R.color.red,
+                        new OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(Integer integer) {
+                                Toast.makeText(context, integer + "", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                .addSheetItem(ContextCompat.getDrawable(context, R.mipmap.ic_launcher_round), "选项三", R.color.blue,
+                        new OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(Integer integer) {
+                                Toast.makeText(context, integer + "", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                .addSheetItem("选项四", R.color.purple,
                         new OnSheetItemClickListener() {
                             @Override
                             public void onClick(Integer integer) {
